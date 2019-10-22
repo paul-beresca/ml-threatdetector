@@ -17,8 +17,8 @@ export class AppComponent implements OnInit
 
   ngOnInit()
   { 
-    this.webcam_init();
-    this.predictWithCocoModel();
+    // this.webcam_init();
+    // this.predictWithCocoModel();
   }
 
 public async predictWithCocoModel(){
