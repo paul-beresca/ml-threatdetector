@@ -6,7 +6,7 @@ import * as cocoSSD from "@tensorflow-models/coco-ssd";
 @Component({
   selector: 'app-tensorflow-example',
   templateUrl: './tensorflow-example.component.html',
-  styleUrls: ['./tensorflow-example.component.css']
+  styleUrls: ['./tensorflow-example.component.scss']
 })
 export class TensorflowExampleComponent implements OnInit {
   title = "TF-ObjectDetection";
