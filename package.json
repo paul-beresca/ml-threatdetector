@@ -21,7 +21,10 @@
     "@angular/router": "^8.2.11",
     "@tensorflow-models/coco-ssd": "^0.1.1",
     "@tensorflow/tfjs": "^0.13.5",
+    "bootstrap": "^4.3.1",
     "core-js": "^2.5.4",
+    "jquery": "^3.4.1",
+    "popper": "^1.0.1",
     "rxjs": "6.5.3",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
