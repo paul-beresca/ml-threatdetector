@@ -23,8 +23,18 @@ export interface ObjectDetectionClass {
 
 export const CLASSES: { [key: string]: ObjectDetectionClass } = {
   1: {
-    name: 'Pistol',
+    name: 'pistol',
     id: 1,
     displayName: 'pistol',
+  },
+  2: {
+    name: 'rifle',
+    id: 3,
+    displayName: 'rifle',
+  },
+  3: {
+    name: 'bear',
+    id: 3,
+    displayName: 'bear',
   }
 };
