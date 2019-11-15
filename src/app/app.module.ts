@@ -18,8 +18,8 @@ import { VideosComponent } from './components/videos/videos.component';
     HomeComponent,
     NavbarComponent,
     TensorflowExampleComponent,
-    SourceListComponent,
-    VideosComponent
+    VideosComponent,
+    SourceListComponent
   ],
   imports: [
     BrowserModule,

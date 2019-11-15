@@ -1,0 +1,28 @@
+li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px;
+  color: white;
+  background-color: #202a2f;
+  position: relative;
+}
+
+p {
+  margin: 0;
+}
+
+.id-video {
+  font-size: 12px;
+  position: absolute;
+  top: 1px;
+  margin-left: 1px;
+  padding-right: 6px;
+  padding-left: 6px;
+  background-color: #b3d7ff2b;
+}
+
+.name-video {
+  font-size: 15px;
+  margin-left: 10px;
+}

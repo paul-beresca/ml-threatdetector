@@ -1,1 +1,14 @@
-<p>source-list works!</p>
+<ul *ngFor="let video of videos">
+  <li>
+    <p class="id-video">{{ video.id }}</p>
+    <p class="name-video">
+      {{ video.name }}
+    </p>
+    <video width="100px" height="70px" controls>
+      <source
+        src="../../../../assets/VideoSources/{{ video.videoUrl }}"
+        type="video/mp4"
+      />
+    </video>
+  </li>
+</ul>
