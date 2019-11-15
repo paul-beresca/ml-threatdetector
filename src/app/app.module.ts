@@ -10,6 +10,7 @@ import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { TensorflowExampleComponent } from './components/tensorflow-example/tensorflow-example.component';
 import { SourceListComponent } from './components/shared/source-list/source-list.component';
 import { VideosComponent } from './components/videos/videos.component';
+import { LandingPageComponent } from './components/landing-page/landing-page.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { VideosComponent } from './components/videos/videos.component';
     NavbarComponent,
     TensorflowExampleComponent,
     SourceListComponent,
-    VideosComponent
+    VideosComponent,
+    LandingPageComponent
   ],
   imports: [
     BrowserModule,
