@@ -1,0 +1,21 @@
+<div class="videos-container">
+  <div class="buttons">
+    <button class="btn btn-primary" (click)="twoColumnClass()" [disabled]="twoColumns">
+      2 columns
+    </button>
+    <button class="btn btn-primary" (click)="threeColumnClass()" [disabled]="threeColumns">
+      3 columns
+    </button>
+    <button class="btn btn-primary" (click)="fourColumnClass()" [disabled]="fourColumns">
+      4 columns
+    </button>
+  </div>
+  <div
+    class="videos twoColumns"
+    [ngClass]="{ twoColumnVideos: twoColumns, threeColumnVideos: threeColumns, fourColumnVideos: fourColumns }"
+  >
+    <div class="video" *ngFor="let video of videos">
+      {{ video.name }}
+    </div>
+  </div>
+</div>
