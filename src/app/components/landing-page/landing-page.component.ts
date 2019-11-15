@@ -8,23 +8,7 @@ import { Component, OnInit, HostListener, ElementRef, ViewChild, AfterViewInit }
 export class LandingPageComponent implements OnInit, AfterViewInit {
   lastKnownScrollPos = 0;
   isReady = false;
-  @ViewChild('villain', {static: false}) villainChar: ElementRef;
-
-  // @HostListener('window:scroll', ['$event']) onScrollEvent($event){
-  //   const pagePos = Math.floor(window.pageYOffset);
-  //   const scale = pagePos > 0 ? pagePos/10 : 0;
-  //   if (this.lastKnownScrollPos < pagePos && pagePos % 9 == 0) {
-  //     // going down
-  //     // this.villainChar.nativeElement.scss
-  //     this.villainChar.nativeElement.style.transform = `scale(1.1${scale})`;
-  //     console.log('Going down', );
-  //   } else {
-  //     // going up
-  //     this.villainChar.nativeElement.style.transform = `scale(1.1${scale})`;
-  //     console.log('Going up');
-  //   }
-  //   this.lastKnownScrollPos = pagePos;
-  // } 
+  shouldTitleAndMenuAppear = false;
 
   constructor() { }
 
@@ -35,6 +19,9 @@ export class LandingPageComponent implements OnInit, AfterViewInit {
     setTimeout(() => {
       this.isReady = true;
     }, 100)
+    setTimeout(() => {
+      this.shouldTitleAndMenuAppear = true;
+    }, 5000);
   }
 
 }
