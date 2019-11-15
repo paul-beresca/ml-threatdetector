@@ -1,4 +1,18 @@
 <div class="home">
   <app-source-list class="sourceList"></app-source-list>
   <div class="streamingVideos">Streaming videos</div>
+  <div style="display: inline-block">
+    <app-tensorflow-example 
+      [videoSrc]="'../../../assets/images/32.jpg'"
+      [videoId]="'01'">
+    </app-tensorflow-example>
+    <app-tensorflow-example
+      [videoSrc]="'../../../assets/images/33.jpg'"
+      [videoId]="'02'">
+    </app-tensorflow-example>
+    <app-tensorflow-example
+      [videoSrc]="'../../../assets/images/34.jpg'"
+      [videoId]="'03'">
+    </app-tensorflow-example>
+  </div>
 </div>

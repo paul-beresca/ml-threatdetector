@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, AfterViewInit } from '@angular/core';
 
 // import COCO-SSD model as cocoSSD
 import * as tfconv from '@tensorflow/tfjs-converter';
@@ -35,17 +35,22 @@ export interface ModelConfig {
   templateUrl: './tensorflow-example.component.html',
   styleUrls: ['./tensorflow-example.component.scss']
 })
-export class TensorflowExampleComponent implements OnInit {
+export class TensorflowExampleComponent implements OnInit, AfterViewInit {
   title = 'TF-ObjectDetection';
-  private video: HTMLVideoElement;
+  @Input() videoSrc: string;
+  @Input() videoId: string;
+  private video: HTMLImageElement;
 
   ngOnInit() {
+    
+  }
+  ngAfterViewInit() {
     this.webcam_init();
     this.predictWithCocoModel();
   }
 
   public async predictWithCocoModel() {
-    const x = new ObjectDetection('mobilenet_v1');
+    const x = new ObjectDetection('lite_mobilenet_v2');
     const modelPromise = load();
     const model = await modelPromise;
     // model.dispose();
@@ -63,21 +68,27 @@ export class TensorflowExampleComponent implements OnInit {
   }
 
   webcam_init() {
-    this.video = <HTMLVideoElement>document.getElementById('vid');
-
-    navigator.mediaDevices
-      .getUserMedia({
-        audio: false,
-        video: {
-          facingMode: 'user'
-        }
-      })
-      .then(stream => {
-        this.video.srcObject = stream;
-        this.video.onloadedmetadata = () => {
-          this.video.play();
-        };
-      });
+    console.log(typeof this.videoSrc);    
+    console.log(typeof this.videoId);
+    this.video = <HTMLImageElement>document.getElementById(`vid${this.videoId}`);
+    console.log('document.getElementById(`vid-${this.videoId}`)', `${this.videoId}`);
+    this.video.src = this.videoSrc;
+    // this.video.onloadedmetadata = () => {
+    //   this.video.play();
+    // };
+    // navigator.mediaDevices
+    //   .getUserMedia({
+    //     audio: false,
+    //     video: {
+    //       facingMode: 'user'
+    //     }
+    //   })
+    //   .then(stream => {
+    //     this.video.srcObject = stream;
+    //     this.video.onloadedmetadata = () => {
+    //       this.video.play();
+    //     };
+    //   });
   }
 
   detectFrame = (video, model) => {
@@ -90,11 +101,11 @@ export class TensorflowExampleComponent implements OnInit {
   }
 
   renderPredictions = predictions => {
-    const canvas = <HTMLCanvasElement>document.getElementById('canvas');
+    const canvas = <HTMLCanvasElement>document.getElementById(`canvas${this.videoId}`);
 
     const ctx = canvas.getContext('2d');
 
-    canvas.width = 300;
+    canvas.width = 600;
     canvas.height = 300;
 
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
@@ -102,7 +113,7 @@ export class TensorflowExampleComponent implements OnInit {
     const font = '16px sans-serif';
     ctx.font = font;
     ctx.textBaseline = 'top';
-    ctx.drawImage(this.video, 0, 0, 300, 300);
+    ctx.drawImage(this.video, 0, 0, 600, 300);
 
     predictions.forEach(prediction => {
       const x = prediction.bbox[0];
