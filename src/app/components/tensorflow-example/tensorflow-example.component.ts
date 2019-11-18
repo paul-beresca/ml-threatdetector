@@ -3,10 +3,10 @@ import { Component, OnInit } from '@angular/core';
 // import COCO-SSD model as cocoSSD
 import * as tfconv from '@tensorflow/tfjs-converter';
 import * as tf from '@tensorflow/tfjs-core';
-import {CLASSES} from './classes';
+import { CLASSES } from './classes';
 
 export type ObjectDetectionBaseModel =
-    'mobilenet_v1'|'mobilenet_v2'|'lite_mobilenet_v2';
+  'mobilenet_v1' | 'mobilenet_v2' | 'lite_mobilenet_v2';
 
 export interface DetectedObject {
   bbox: [number, number, number, number];  // [x, y, width, height]
@@ -117,7 +117,7 @@ export class TensorflowExampleComponent implements OnInit {
       ctx.fillStyle = '#00FFFF';
       const textWidth = ctx.measureText(prediction.class).width;
       const textHeight = parseInt(font, 10); // base 10
-      ctx.fillRect(x, y, textWidth + 4, textHeight + 4);
+      ctx.fillRect(x, y, textWidth + 40, textHeight + 4);
     });
 
     predictions.forEach(prediction => {
@@ -125,7 +125,7 @@ export class TensorflowExampleComponent implements OnInit {
       const y = prediction.bbox[1];
       // Draw the text last to ensure it's on top.
       ctx.fillStyle = '#000000';
-      ctx.fillText(prediction.class, x, y);
+      ctx.fillText(prediction.class + ' ' + (prediction.score.toFixed(2)), x, y);
     });
   }
 
@@ -134,17 +134,17 @@ export class TensorflowExampleComponent implements OnInit {
 export async function load(config: ModelConfig = {}) {
   if (tf == null) {
     throw new Error(
-        `Cannot find TensorFlow.js. If you are using a <script> tag, please ` +
-        `also include @tensorflow/tfjs on the page before using this model.`);
+      `Cannot find TensorFlow.js. If you are using a <script> tag, please ` +
+      `also include @tensorflow/tfjs on the page before using this model.`);
   }
   const base = config.base || 'lite_mobilenet_v2';
   const modelUrl = config.modelUrl;
   if (['mobilenet_v1', 'mobilenet_v2', 'lite_mobilenet_v2'].indexOf(base) ===
-      -1) {
+    -1) {
     throw new Error(
-        `ObjectDetection constructed with invalid base model ` +
-        `${base}. Valid names are 'mobilenet_v1',` +
-        ` 'mobilenet_v2' and 'lite_mobilenet_v2'.`);
+      `ObjectDetection constructed with invalid base model ` +
+      `${base}. Valid names are 'mobilenet_v1',` +
+      ` 'mobilenet_v2' and 'lite_mobilenet_v2'.`);
   }
 
   const objectDetection = new ObjectDetection(base, modelUrl);
@@ -168,7 +168,7 @@ class ObjectDetection {
     this.model = await tfconv.loadGraphModel(this.modelPath);
     // Warmup the model.
     const result = await this.model.executeAsync(tf.zeros([1, 300, 300, 3])) as
-        tf.Tensor[];
+      tf.Tensor[];
     await Promise.all(result.map(t => t.data()));
     result.map(t => t.dispose());
   }
@@ -183,9 +183,9 @@ class ObjectDetection {
    * locations. Defaults to 20.
    */
   private async infer(
-      img: tf.Tensor3D|ImageData|HTMLImageElement|HTMLCanvasElement|
+    img: tf.Tensor3D | ImageData | HTMLImageElement | HTMLCanvasElement |
       HTMLVideoElement,
-      maxNumBoxes: number): Promise<DetectedObject[]> {
+    maxNumBoxes: number): Promise<DetectedObject[]> {
     const batched = tf.tidy(() => {
       if (!(img instanceof tf.Tensor)) {
         img = tf.browser.fromPixels(img);
@@ -214,7 +214,7 @@ class ObjectDetection {
     tf.dispose(result);
 
     const [maxScores, classes] =
-        this.calculateMaxScores(scores, result[0].shape[1], result[0].shape[2]);
+      this.calculateMaxScores(scores, result[0].shape[1], result[0].shape[2]);
 
     const prevBackend = tf.getBackend();
     // run post process in cpu
@@ -222,9 +222,9 @@ class ObjectDetection {
     console.log('BOXES', result[1]);
     const indexTensor = tf.tidy(() => {
       const boxes2 =
-          tf.tensor2d(boxes, [result[1].shape[1], 4]);
+        tf.tensor2d(boxes, [result[1].shape[1], 4]);
       return tf.image.nonMaxSuppression(
-          boxes2, maxScores, maxNumBoxes, 0.5, 0.5);
+        boxes2, maxScores, maxNumBoxes, 0.5, 0.5);
     });
 
     const indexes = indexTensor.dataSync() as Float32Array;
@@ -234,12 +234,12 @@ class ObjectDetection {
     tf.setBackend(prevBackend);
 
     return this.buildDetectedObjects(
-        width, height, boxes, maxScores, indexes, classes);
+      width, height, boxes, maxScores, indexes, classes);
   }
 
   private buildDetectedObjects(
-      width: number, height: number, boxes: Float32Array, scores: number[],
-      indexes: Float32Array, classes: number[]): DetectedObject[] {
+    width: number, height: number, boxes: Float32Array, scores: number[],
+    indexes: Float32Array, classes: number[]): DetectedObject[] {
     const count = indexes.length;
     const objects: DetectedObject[] = [];
     for (let i = 0; i < count; i++) {
@@ -265,8 +265,8 @@ class ObjectDetection {
   }
 
   private calculateMaxScores(
-      scores: Float32Array, numBoxes: number,
-      numClasses: number): [number[], number[]] {
+    scores: Float32Array, numBoxes: number,
+    numClasses: number): [number[], number[]] {
     const maxes = [];
     const classes = [];
     for (let i = 0; i < numBoxes; i++) {
@@ -296,9 +296,9 @@ class ObjectDetection {
    *
    */
   async detect(
-      img: tf.Tensor3D|ImageData|HTMLImageElement|HTMLCanvasElement|
+    img: tf.Tensor3D | ImageData | HTMLImageElement | HTMLCanvasElement |
       HTMLVideoElement,
-      maxNumBoxes = 20): Promise<DetectedObject[]> {
+    maxNumBoxes = 20): Promise<DetectedObject[]> {
     return this.infer(img, maxNumBoxes);
   }
 
