@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "name": "Licensed Frozen Hat",
+    "name": "Video001",
     "description": "Incidunt et magni est ut.",
     "price": "170.00",
     "videoUrl": "./Video001.mp4",
@@ -9,7 +9,7 @@
   },
   {
     "id": 2,
-    "name": "Rustic Concrete Chicken",
+    "name": "Video002",
     "description": "Sint libero mollitia.",
     "price": "302.00",
     "videoUrl": "./Video002.mp4",
@@ -17,7 +17,7 @@
   },
   {
     "id": 3,
-    "name": "Fantastic Metal Computer",
+    "name": "Video003",
     "description": "In consequuntur cupiditate et unde minus.",
     "price": "279.00",
     "videoUrl": "./Video003.mp4",
@@ -25,7 +25,7 @@
   },
   {
     "id": 4,
-    "name": "Fantastic Metal Computer",
+    "name": "Video004",
     "description": "In consequuntur cupiditate et unde minus.",
     "price": "279.00",
     "videoUrl": "./Video004.mp4",
@@ -33,7 +33,7 @@
   },
   {
     "id": 5,
-    "name": "Fantastic Metal Computer",
+    "name": "Video005",
     "description": "In consequuntur cupiditate et unde minus.",
     "price": "279.00",
     "videoUrl": "./Video005.mp4",
@@ -41,7 +41,7 @@
   },
   {
     "id": 6,
-    "name": "Fantastic Metal Computer",
+    "name": "Video006",
     "description": "In consequuntur cupiditate et unde minus.",
     "price": "279.00",
     "videoUrl": "./Video006.mp4",
@@ -49,7 +49,7 @@
   },
   {
     "id": 7,
-    "name": "Fantastic Metal Computer",
+    "name": "Video007",
     "description": "In consequuntur cupiditate et unde minus.",
     "price": "279.00",
     "videoUrl": "./Video007.mp4",
@@ -57,7 +57,7 @@
   },
   {
     "id": 8,
-    "name": "Fantastic Metal Computer",
+    "name": "Video008",
     "description": "In consequuntur cupiditate et unde minus.",
     "price": "279.00",
     "videoUrl": "./Video008.mp4",
@@ -65,7 +65,7 @@
   },
   {
     "id": 9,
-    "name": "Fantastic Metal Computer",
+    "name": "Video009",
     "description": "In consequuntur cupiditate et unde minus.",
     "price": "279.00",
     "videoUrl": "./Video009.mp4",
@@ -73,7 +73,7 @@
   },
   {
     "id": 10,
-    "name": "Fantastic Metal Computer",
+    "name": "Video010",
     "description": "In consequuntur cupiditate et unde minus.",
     "price": "279.00",
     "videoUrl": "./Video010.mp4",

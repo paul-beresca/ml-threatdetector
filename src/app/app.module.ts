@@ -10,6 +10,9 @@ import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { TensorflowExampleComponent } from './components/tensorflow-example/tensorflow-example.component';
 import { SourceListComponent } from './components/shared/source-list/source-list.component';
 import { VideosComponent } from './components/videos/videos.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatRadioModule } from '@angular/material/radio';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,10 @@ import { VideosComponent } from './components/videos/videos.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatRadioModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
