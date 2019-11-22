@@ -1,11 +1,21 @@
 * {
   margin: 0;
   padding: 0;
+  -webkit-font-smoothing: antialased;
+  -moz-osx-font-smoothing: antialased;
 }
 html,
 body {
   height: 100%;
 }
 .home {
-  height: calc(100% - 19px);
+  // height: calc(100% - 19px);
+  height: calc(100% - 57px);
+}
+
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mat-radio-label {
+  display: flex;
+  justify-content: space-evenly;
 }

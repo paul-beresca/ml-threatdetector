@@ -1,1 +1,45 @@
-<p>source-list works!</p>
+<ul>
+  <li *ngFor="let video of videos">
+    <p class="id-video">{{ video.id }}</p>
+    <p class="name-video">
+      {{ video.name }}
+    </p>
+    <button
+      class="btn btn-primary"
+      (click)="addVideoToWatchlist(video)"
+      *ngIf="!checkDisabled(video.id)"
+    >
+      Add
+    </button>
+    <p class="name-video" *ngIf="checkDisabled(video.id)">
+      already added
+    </p>
+    <video width="100px" height="70px" controls>
+      <source
+        src="../../../../assets/VideoSources/{{ video.videoUrl }}"
+        type="video/mp4"
+      />
+    </video>
+  </li>
+</ul>
+
+<div class="grid-videos">
+  <h3>Video Grid</h3>
+  <div class="grid-radioboxes">
+    <mat-radio-group
+      name="gridList"
+      class="grid-radio-group"
+      [(ngModel)]="choosenGrid"
+    >
+      <mat-radio-button
+        class="grid-radio-buttons"
+        *ngFor="let grid of gridSystems"
+        [checked]="grid == '1 X 1'"
+        (click)="choosenGirdSystem(grid)"
+        [value]="grid"
+      >
+        {{ grid }}
+      </mat-radio-button>
+    </mat-radio-group>
+  </div>
+</div>

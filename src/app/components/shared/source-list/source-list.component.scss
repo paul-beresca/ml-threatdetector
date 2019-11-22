@@ -1,0 +1,76 @@
+ul {
+  max-height: 645px;
+  height: 100%;
+  overflow: auto;
+}
+li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px;
+  color: white;
+  background-color: #202a2f;
+  position: relative;
+}
+
+p {
+  margin: 0;
+}
+
+.id-video {
+  font-size: 12px;
+  position: absolute;
+  top: 1px;
+  margin-left: 1px;
+  padding-right: 6px;
+  padding-left: 6px;
+  background-color: #b3d7ff2b;
+}
+
+.name-video {
+  font-size: 15px;
+  margin-left: 10px;
+}
+
+.grid-videos {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  h3 {
+    color: #ffffff;
+  }
+}
+
+.grid-checkboxes {
+  width: 100%;
+  margin: auto;
+}
+
+.grid-system {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 35%;
+  margin: auto;
+  justify-content: space-evenly;
+}
+
+mat-radio-group {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  font-size: 21px;
+  margin: auto;
+  width: 200px;
+
+  label {
+    display: flex;
+    justify-content: space-evenly;
+  }
+}
+
+.mat-radio-label {
+  display: flex;
+  justify-content: space-evenly;
+}
