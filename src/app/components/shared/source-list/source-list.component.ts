@@ -1,6 +1,5 @@
-import { Component, OnInit, Output, EventEmitter } from "@angular/core";
+import { Component, OnInit, Output, EventEmitter, Input } from "@angular/core";
 import { VideosService } from "src/app/services/videos.service";
-import { MatRadioModule } from "@angular/material/radio";
 
 @Component({
   selector: "app-source-list",
@@ -8,16 +7,13 @@ import { MatRadioModule } from "@angular/material/radio";
   styleUrls: ["./source-list.component.scss"]
 })
 export class SourceListComponent implements OnInit {
-  choosenGrid: string;
-  gridSystems: any[] = [
-    { gridSystem: "1 X 1", checked: true },
-    { gridSystem: "2 X 2", checked: false },
-    { gridSystem: "3 X 3", checked: false },
-    { gridSystem: "4 X 4", checked: false },
-  ];
+  choosenGrid: string = "1 X 1";
+  gridSystems = ["1 X 1", "2 X 2", "3 X 3", "4 X 4"];
   videos: any = [];
+  videoDisabled: boolean = false;
   @Output() videosToWatch = new EventEmitter<[]>();
   @Output() emitChoosenGrid = new EventEmitter<[]>();
+  @Input() addedVideos;
 
   constructor(private videosService: VideosService) {}
 
@@ -28,7 +24,6 @@ export class SourceListComponent implements OnInit {
   showVideosFromJson() {
     this.videosService.getVideosFromJson().subscribe(videos => {
       this.videos = videos;
-      console.log("this.videos", this.videos);
     });
   }
 
@@ -36,8 +31,11 @@ export class SourceListComponent implements OnInit {
     this.videosToWatch.emit(data);
   }
 
+  checkDisabled(videoId) {
+    return this.addedVideos.find(video => video.id === videoId);
+  }
+
   choosenGirdSystem(choosenGrid) {
     this.emitChoosenGrid.emit(choosenGrid);
-    console.log(choosenGrid);
   }
 }

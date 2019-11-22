@@ -3,10 +3,11 @@
     class="sourceList"
     (videosToWatch)="addVideoToWatchlist($event)"
     (emitChoosenGrid)="choosenGirdSystem($event)"
+    [addedVideos]="videosToWatch"
   ></app-source-list>
   <div class="videos-container">
     <div class="no-videos-message" *ngIf="videosToWatch.length == 0">
-      No videos added ! 
+      No videos added !
     </div>
     <div
       class="videos twoColumns"
@@ -17,8 +18,11 @@
       }"
     >
       <video
+        autoplay
+        id="videoAdded"
         class="video"
         controls
+        #videoPlayer
         *ngFor="let video of videosToWatch"
       >
         <source
