@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Input } from '@angular/core';
 
 // import COCO-SSD model as cocoSSD
 import * as tfconv from '@tensorflow/tfjs-converter';
@@ -38,6 +38,8 @@ export interface ModelConfig {
 export class TensorflowExampleComponent implements OnInit, AfterViewInit {
   title = 'TF-ObjectDetection';
   private video: HTMLVideoElement;
+  @Input() videoSrc: string;
+  @Input() videoId: string;
 
   ngOnInit() {
   }
@@ -65,27 +67,34 @@ export class TensorflowExampleComponent implements OnInit, AfterViewInit {
   }
 
   webcam_init() {
-    this.video = <HTMLVideoElement>document.getElementById('vid');
+    this.video = <HTMLVideoElement>document.getElementById(`vid${this.videoId}`);
+    this.video.src = this.videoSrc;
+    this.video.onloadeddata = () => {
+      this.video.width = this.video.videoWidth;
+      this.video.height = this.video.videoHeight;
 
-    navigator.mediaDevices
-      .getUserMedia({
-        audio: false,
-        video: {
-          facingMode: 'user'
-        }
-      })
-      .then(stream => {
-         this.video.srcObject = stream;
-        // this.video.src = 'assets/VideoSources/guns.mp4';
+      this.video.play();
+      this.predictWithCocoModel();
+    };
+    // navigator.mediaDevices
+    //   .getUserMedia({
+    //     audio: false,
+    //     video: {
+    //       facingMode: 'user'
+    //     }
+    //   })
+    //   .then(stream => {
+    //      this.video.srcObject = stream;
+    //     // this.video.src = 'assets/VideoSources/guns.mp4';
 
-        this.video.onloadeddata = () => {
-          this.video.width = this.video.videoWidth;
-          this.video.height = this.video.videoHeight;
+    //     this.video.onloadeddata = () => {
+    //       this.video.width = this.video.videoWidth;
+    //       this.video.height = this.video.videoHeight;
 
-          this.video.play();
-          this.predictWithCocoModel();
-        };
-      });
+    //       this.video.play();
+    //       this.predictWithCocoModel();
+    //     };
+    //   });
   }
 
   detectFrame = (video, model) => {
@@ -98,7 +107,7 @@ export class TensorflowExampleComponent implements OnInit, AfterViewInit {
   }
 
   renderPredictions = predictions => {
-    const canvas = <HTMLCanvasElement>document.getElementById('canvas');
+    const canvas = <HTMLCanvasElement>document.getElementById(`canvas${this.videoId}`);
 
     const ctx = canvas.getContext('2d');
 
