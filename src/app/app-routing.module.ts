@@ -9,7 +9,7 @@ const routes: Routes = [
   { path: "home", component: HomeComponent },
   {
     path: "",
-    redirectTo: "/home",
+    redirectTo: "/landing",
     pathMatch: "full"
   },
   { path: "imagetool", component: ImageTrainToolComponent },

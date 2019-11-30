@@ -12,6 +12,7 @@ import { SourceListComponent } from './components/shared/source-list/source-list
 import { VideosComponent } from './components/videos/videos.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatRadioModule } from '@angular/material/radio';
+import {MatIconModule} from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 
@@ -33,6 +34,7 @@ import { LandingPageComponent } from './components/landing-page/landing-page.com
     HttpClientModule,
     BrowserAnimationsModule,
     MatRadioModule,
+    MatIconModule,
     FormsModule
   ],
   providers: [],

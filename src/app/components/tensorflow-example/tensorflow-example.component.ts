@@ -122,6 +122,11 @@ export class TensorflowExampleComponent implements OnInit, AfterViewInit {
 
       ctx.fillStyle = '#000000';
       ctx.fillText(prediction.class, x, y - labelHeight);
+      
+      // Draw border around canvas to signal that something was found
+      ctx.lineWidth = 15;
+      ctx.strokeStyle = "#FF0000";
+      ctx.strokeRect(0, 0, canvas.width, canvas.height);
     });
   }
 
