@@ -76,25 +76,6 @@ export class TensorflowExampleComponent implements OnInit, AfterViewInit {
       this.video.play();
       this.predictWithCocoModel();
     };
-    // navigator.mediaDevices
-    //   .getUserMedia({
-    //     audio: false,
-    //     video: {
-    //       facingMode: 'user'
-    //     }
-    //   })
-    //   .then(stream => {
-    //      this.video.srcObject = stream;
-    //     // this.video.src = 'assets/VideoSources/guns.mp4';
-
-    //     this.video.onloadeddata = () => {
-    //       this.video.width = this.video.videoWidth;
-    //       this.video.height = this.video.videoHeight;
-
-    //       this.video.play();
-    //       this.predictWithCocoModel();
-    //     };
-    //   });
   }
 
   detectFrame = (video, model) => {

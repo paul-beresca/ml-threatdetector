@@ -13,6 +13,7 @@ import { VideosComponent } from './components/videos/videos.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatRadioModule } from '@angular/material/radio';
 import { FormsModule } from '@angular/forms';
+import { LandingPageComponent } from './components/landing-page/landing-page.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,9 @@ import { FormsModule } from '@angular/forms';
     NavbarComponent,
     TensorflowExampleComponent,
     VideosComponent,
-    SourceListComponent
+    SourceListComponent,
+    VideosComponent,
+    LandingPageComponent
   ],
   imports: [
     BrowserModule,
