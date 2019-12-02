@@ -75,8 +75,4 @@ export class VideosComponent implements OnInit {
       this.threeColumns = false;
     }
   }
-
-  over() {
-    console.log('pula')
-  }
 }

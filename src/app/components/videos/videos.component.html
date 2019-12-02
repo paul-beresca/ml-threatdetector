@@ -18,11 +18,12 @@
       }"
     >
       <app-tensorflow-example
-      *ngFor="let video of videosToWatch"
+        *ngFor="let video of videosToWatch"
         [videoSrc]="'../../../../assets/VideoSources/' + video.videoUrl"
         [videoId]="video.id"
         id="videoAdded"
         class="video"
+        (click)="showVideoDetails(video)"
       >
       </app-tensorflow-example>
       <!-- <video
