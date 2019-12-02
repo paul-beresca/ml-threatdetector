@@ -9,15 +9,16 @@ import { VideosService } from "src/app/services/videos.service";
 export class VideosComponent implements OnInit {
   videos: any = [];
   videosToWatch: any = [];
-  oneColumn: boolean = true;
+  oneColumn: boolean = false;
   twoColumns: boolean = false;
-  threeColumns: boolean = false;
+  threeColumns: boolean = true;
   fourColumns: boolean = false;
   gridSystem: string = "";
   video: HTMLVideoElement;
   addDisabled: boolean;
   @ViewChild("videoPlayer", { static: true }) videoPlayer: ElementRef;
   @Output() videosAlreadyAdded = new EventEmitter<[]>();
+  @Output() selectedVideo = new EventEmitter<any>();
 
 
   constructor(private videosService: VideosService) {}
@@ -39,6 +40,12 @@ export class VideosComponent implements OnInit {
   checkVideosAdded(videosAlreadyAdded) {
     this.videosAlreadyAdded = this.videosToWatch;
     this.videosToWatch.emit(videosAlreadyAdded);
+  }
+
+  showVideoDetails(video) {
+    this.selectedVideo = video;
+    console.log(this.selectedVideo)
+    return this.selectedVideo;
   }
 
   choosenGirdSystem(dataChild) {

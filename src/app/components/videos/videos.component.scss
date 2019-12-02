@@ -18,11 +18,12 @@
 
 .video {
   width: 100%;
-  max-width: 350px;
-  height: 100%;
+  height: auto;
   min-height: 170px;
   object-fit: contain;
+  cursor: pointer;
 }
+
 .buttons {
   display: flex;
   justify-content: center;
@@ -33,9 +34,9 @@
 
 .videos-main-container {
   display: grid;
-  grid-template-columns: 26% 1fr;
+  grid-template-columns: 26% 1fr 18%;
   grid-template-rows: auto;
-  grid-template-areas: "sourceList videosContainer";
+  grid-template-areas: "sourceList videosContainer videoSettings";
   height: 100%;
 }
 
@@ -43,7 +44,7 @@
   grid-area: sourceList;
   background-color: #263238;
   height: 100%;
-  min-width: 26% ;
+  min-width: 26%;
 }
 
 .videosContainer {
@@ -55,4 +56,11 @@
   color: black;
   margin: auto;
   width: 330px;
+}
+
+.videoSettings {
+  grid-area: videoSettings;
+  background-color: #263238;
+  height: 100%;
+  min-width: 18%;
 }

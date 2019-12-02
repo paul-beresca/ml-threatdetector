@@ -3,17 +3,39 @@
   padding: 0;
   -webkit-font-smoothing: antialased;
   -moz-osx-font-smoothing: antialased;
+  /* width */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f100;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #e5edf15c;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #e5edf18c;
+  }
 }
+
 html,
 body {
   height: 100%;
 }
 .home {
-  // height: calc(100% - 19px);
   height: calc(100% - 57px);
 }
 
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
 .mat-radio-label {
   display: flex;

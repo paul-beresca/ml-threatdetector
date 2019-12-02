@@ -17,19 +17,33 @@
         fourColumnVideos: fourColumns
       }"
     >
-      <video
-        autoplay
+      <app-tensorflow-example
+        *ngFor="let video of videosToWatch"
+        [videoSrc]="'../../../../assets/VideoSources/' + video.videoUrl"
+        [videoId]="video.id"
         id="videoAdded"
         class="video"
+        (click)="showVideoDetails(video)"
+      >
+      </app-tensorflow-example>
+      <!-- <video
+        autoplay
+        class="video"
+        id="videoAdded"
         controls
         #videoPlayer
         *ngFor="let video of videosToWatch"
+        (click)="showVideoDetails(video)"
       >
         <source
           src="../../../../assets/VideoSources/{{ video.videoUrl }}"
           type="video/mp4"
         />
-      </video>
+      </video> -->
     </div>
   </div>
+  <app-video-settings
+    class="videoSettings"
+    [videoSettings]="selectedVideo"
+  ></app-video-settings>
 </div>

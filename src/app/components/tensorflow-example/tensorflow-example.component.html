@@ -1,7 +1,15 @@
 <div style="text-align:center">
-  
-  <h1>Tensorflow.js Real Time Object Detection</h1>
-  
-  <video hidden id="vid"></video>
-  <canvas id="canvas"></canvas>
+  <video 
+    hidden 
+    id="vid{{videoId}}"
+    controls
+    autoplay
+  >
+  </video>
+  <canvas
+    id="canvas{{videoId}}"
+    class="video"
+  >
+  </canvas>
+  <!-- <mat-icon class="full-screen-icon">fullscreen</mat-icon> -->
 </div>
