@@ -9,9 +9,9 @@ import { VideosService } from "src/app/services/videos.service";
 export class VideosComponent implements OnInit {
   videos: any = [];
   videosToWatch: any = [];
-  oneColumn: boolean = true;
+  oneColumn: boolean = false;
   twoColumns: boolean = false;
-  threeColumns: boolean = false;
+  threeColumns: boolean = true;
   fourColumns: boolean = false;
   gridSystem: string = "";
   video: HTMLVideoElement;
