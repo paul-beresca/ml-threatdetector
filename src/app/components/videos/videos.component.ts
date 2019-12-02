@@ -18,6 +18,7 @@ export class VideosComponent implements OnInit {
   addDisabled: boolean;
   @ViewChild("videoPlayer", { static: true }) videoPlayer: ElementRef;
   @Output() videosAlreadyAdded = new EventEmitter<[]>();
+  @Output() selectedVideo = new EventEmitter<any>();
 
 
   constructor(private videosService: VideosService) {}
@@ -39,6 +40,12 @@ export class VideosComponent implements OnInit {
   checkVideosAdded(videosAlreadyAdded) {
     this.videosAlreadyAdded = this.videosToWatch;
     this.videosToWatch.emit(videosAlreadyAdded);
+  }
+
+  showVideoDetails(video) {
+    this.selectedVideo = video;
+    console.log(this.selectedVideo)
+    return this.selectedVideo;
   }
 
   choosenGirdSystem(dataChild) {
@@ -67,5 +74,9 @@ export class VideosComponent implements OnInit {
       this.twoColumns = false;
       this.threeColumns = false;
     }
+  }
+
+  over() {
+    console.log('pula')
   }
 }

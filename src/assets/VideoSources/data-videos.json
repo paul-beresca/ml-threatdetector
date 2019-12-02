@@ -2,51 +2,81 @@
   {
     "id": 1,
     "name": "Video001",
-    "videoUrl": "./Video001.mp4"
+    "videoUrl": "./Video001.mp4",
+    "address": "St. Tipografiei nr. 1",
+    "long": 47.639942,
+    "lat": 26.259347
   },
   {
     "id": 2,
     "name": "Video002",
-    "videoUrl": "./Video002.mp4"
+    "videoUrl": "./Video002.mp4",
+    "address": "St. Tipografiei nr. 2",
+    "long": 37.639942,
+    "lat": 26.259347
   },
   {
     "id": 3,
     "name": "Video003",
-    "videoUrl": "./Video003.mp4"
+    "videoUrl": "./Video003.mp4",
+    "address": "St. Tipografiei nr. 3",
+    "long": 47.639942,
+    "lat": 16.259347
   },
   {
     "id": 4,
     "name": "Video004",
-    "videoUrl": "./Video004.mp4"
+    "videoUrl": "./Video004.mp4",
+    "address": "St. Tipografiei nr. 4",
+    "long": 47.639942,
+    "lat": 28.259347
   },
   {
     "id": 5,
     "name": "Video005",
-    "videoUrl": "./Video005.mp4"
+    "videoUrl": "./Video005.mp4",
+    "address": "St. Tipografiei nr. 5",
+    "long": 17.639942,
+    "lat": 26.259347
   },
   {
     "id": 6,
     "name": "Video006",
-    "videoUrl": "./Video006.mp4"
+    "videoUrl": "./Video006.mp4",
+    "address": "St. Tipografiei nr. 6",
+    "long": 27.639942,
+    "lat": 26.259347
   },
   {
     "id": 7,
     "name": "Video007",
-    "videoUrl": "./Video007.mp4"
+    "videoUrl": "./Video007.mp4",
+    "address": "St. Tipografiei nr. 7",
+    "long": 12.639942,
+    "lat": 26.259347
   },
   {
     "id": 8,
     "name": "Video008",
-    "videoUrl": "./Video008.mp4"
+    "videoUrl": "./Video008.mp4",
+    "address": "St. Tipografiei nr. 8",
+    "long": 44.639942,
+    "lat": 26.259347
   },
   {
     "id": 9,
     "name": "Video009",
-    "videoUrl": "./Video009.mp4"
+    "videoUrl": "./Video009.mp4",
+    "address": "St. Tipografiei nr. 9",
+    "long": 47.639942,
+    "lat": 20.259347
   },
   {
     "id": 10,
     "name": "Video010",
-    "videoUrl": "./Video010.mp4"
+    "videoUrl": "./Video010.mp4",
+    "address": "St. Tipografiei nr. 10",
+    "long": 47.639942,
+    "lat": 10.259347
   }
 ]

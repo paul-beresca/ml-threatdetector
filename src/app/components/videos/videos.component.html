@@ -19,11 +19,12 @@
     >
       <video
         autoplay
-        id="videoAdded"
         class="video"
+        id="videoAdded"
         controls
         #videoPlayer
         *ngFor="let video of videosToWatch"
+        (click)="showVideoDetails(video)"
       >
         <source
           src="../../../../assets/VideoSources/{{ video.videoUrl }}"
@@ -32,4 +33,8 @@
       </video>
     </div>
   </div>
+  <app-video-settings
+    class="videoSettings"
+    [videoSettings]="selectedVideo"
+  ></app-video-settings>
 </div>

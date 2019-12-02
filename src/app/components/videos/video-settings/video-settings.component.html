@@ -1,0 +1,15 @@
+<div class="header-video-details">
+  <h3>Video Settings</h3>
+  <h5 *ngIf="!videoSettings.name">No selected video</h5>
+</div>
+<div class="video-settings" *ngIf="videoSettings.name">
+  <div class="video-address">Address : {{ videoSettings.address }}</div>
+</div>
+<mgl-map
+  *ngIf="videoSettings.long"
+  [style]="'mapbox://styles/mapbox/streets-v9'"
+  [zoom]="[15]"
+  [center]="[videoSettings.lat, videoSettings.long]"
+>
+  <mgl-marker [lngLat]="[videoSettings.lat, videoSettings.long]"></mgl-marker>
+</mgl-map>
