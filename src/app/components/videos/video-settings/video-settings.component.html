@@ -1,6 +1,7 @@
 <div class="header-video-details">
   <h3>Video Settings</h3>
   <h5 *ngIf="!videoSettings.name">No selected video</h5>
+  <button (click)='sendMessage()'>SEND MESSAGE</button>
 </div>
 <div class="video-settings" *ngIf="videoSettings.name">
   <div class="video-address">Address : {{ videoSettings.address }}</div>
