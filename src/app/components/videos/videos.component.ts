@@ -10,17 +10,18 @@ export class VideosComponent implements OnInit {
   @ViewChild("videoPlayer", { static: true }) videoPlayer: ElementRef;
   @Output() videosAlreadyAdded = new EventEmitter<[]>();
   @Output() selectedVideo = new EventEmitter<any>();
+  // @Output() fullWidthVideo = new EventEmitter<string>();
   videos: any = [];
   videosToWatch: any = [];
-  oneColumn: boolean = false;
+  oneColumn: boolean = true;
   twoColumns: boolean = false;
-  threeColumns: boolean = true;
+  threeColumns: boolean = false;
   fourColumns: boolean = false;
   gridSystem: string = "";
   video: HTMLVideoElement;
   addDisabled: boolean;
   removedVideoId: string;
-  fullWidthVideo: boolean = false;
+  fullWidthVideo: string = " ";
 
   constructor(private videosService: VideosService) {}
 
@@ -46,8 +47,12 @@ export class VideosComponent implements OnInit {
   showVideoDetails(video) {
     this.selectedVideo = video;
     console.log(this.selectedVideo)
-    this.fullWidthVideo != this.fullWidthVideo;
     return this.selectedVideo;
+  }
+
+  showMainVideo(mainVideo) {
+    this.fullWidthVideo = "1 X 1";
+    this.videosToWatch = this.videosToWatch.filter(item => item == mainVideo);
   }
 
   removeVideoFromWatchlist(videoId) {
@@ -60,6 +65,12 @@ export class VideosComponent implements OnInit {
 
   choosenGirdSystem(dataChild) {
     this.gridSystem = dataChild;
+    if (this.fullWidthVideo == "1 X 1") {
+      this.oneColumn = !this.oneColumn;
+      this.twoColumns = false;
+      this.threeColumns = false;
+      this.fourColumns = false;      
+    }
     if (this.gridSystem == "1 X 1") {
       this.oneColumn = !this.oneColumn;
       this.twoColumns = false;

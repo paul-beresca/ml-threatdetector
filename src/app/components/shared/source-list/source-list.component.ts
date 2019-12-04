@@ -11,6 +11,7 @@ export class SourceListComponent implements OnInit {
   @Output() emitChoosenGrid = new EventEmitter<[]>();
   @Output() emitRemovedVideo = new EventEmitter<string>();
   @Input() addedVideos;
+  @Input() oneColumnGrid;
   choosenGrid: string = "1 X 1";
   gridSystems = ["1 X 1", "2 X 2", "3 X 3", "4 X 4"];
   videoDisabled: boolean = false;
