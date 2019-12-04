@@ -38,8 +38,9 @@ export interface ModelConfig {
 export class TensorflowExampleComponent implements OnInit, AfterViewInit {
   title = 'TF-ObjectDetection';
   private video: HTMLVideoElement;
-  @Input() videoSrc: string;
+  @Input() videoSrc: any;
   @Input() videoId: string;
+  @Input() isLive: string;
 
   ngOnInit() {
   }
@@ -68,6 +69,12 @@ export class TensorflowExampleComponent implements OnInit, AfterViewInit {
 
   webcam_init() {
     this.video = <HTMLVideoElement>document.getElementById(`vid${this.videoId}`);
+    if (this.isLive) {
+      console.log(this.videoSrc);
+      this.video.srcObject = this.videoSrc;
+    } else {
+      this.video.src = this.videoSrc;
+    }
     this.video.src = this.videoSrc;
     this.video.onloadeddata = () => {
       this.video.width = this.video.videoWidth;

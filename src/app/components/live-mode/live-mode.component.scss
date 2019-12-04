@@ -1,0 +1,23 @@
+.live_mode_container {
+  width: 100%;
+  height: 100%;
+  background: #263238;
+}
+
+.villain-character {
+  width: 37%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  background-image: url('../../../assets/ui/ka-character.png');
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  background-size: contain;
+  -webkit-transition: width 4s; /* For Safari 3.1 to 6.0 */
+  transition: width 4s;
+}
+
+.villain-reversed {
+  right: 3px;
+  transform: scaleX(-1);
+}
