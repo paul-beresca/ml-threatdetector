@@ -21,7 +21,7 @@
 
 .smoke {
   content: "";
-  width: 300px;
+  width: 250px;
   height: 200px;
   background-image: url('../../../assets/ui/smoke.png');
   background-repeat: no-repeat;
@@ -100,9 +100,10 @@
 	        animation: text-flicker-in-glow 4s linear both;
 }
 
+// swing for menu
 .swing-in-top-fwd {
-	-webkit-animation: swing-in-top-fwd 1s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
-	        animation: swing-in-top-fwd 1s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
+	-webkit-animation: swing-in-top-fwd 3s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
+	        animation: swing-in-top-fwd 3s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
 }
 
 .landing-page-title {
@@ -134,44 +135,44 @@
 
 @keyframes smoke {
   0% {
-    -webkit-transform: rotate(0deg) scale(5) translateY(0px) translateX(80px);
-    -moz-transform: rotate(0deg) scale(5) translateY(0px) translateX(80px);
-    -ms-transform: rotate(0deg) scale(5) translateY(0px) translateX(80px);
-    -o-transform: rotate(0deg) scale(5) translateY(0px) translateX(80px);
-    transform: rotate(0deg) scale(5) translateY(0px) translateX(80px);
-    opacity: 0;
-  }
-  20%, 80% {
+    -webkit-transform: rotate(0deg) scale(3) translateY(0px) translateX(80px);
+    -moz-transform: rotate(0deg) scale(3) translateY(0px) translateX(80px);
+    -ms-transform: rotate(0deg) scale(3) translateY(0px) translateX(80px);
+    -o-transform: rotate(0deg) scale(3) translateY(0px) translateX(80px);
+    transform: rotate(0deg) scale(3) translateY(0px) translateX(80px);
     opacity: .5;
   }
+  20%, 80% {
+    opacity: .9;
+  }
   100% {
-    -webkit-transform: rotate(0deg) scale(5) translateY(-100px) translateX(120px);
-    -moz-transform: rotate(0deg) scale(5) translateY(-100px) translateX(120px);
-    -ms-transform: rotate(0deg) scale(5) translateY(-100px) translateX(120px);
-    -o-transform: rotate(0deg) scale(5) translateY(-100px) translateX(120px);
-    transform: rotate(0deg) scale(5) translateY(-100px) translateX(120px);
+    -webkit-transform: rotate(0deg) scale(4) translateY(-100px) translateX(120px);
+    -moz-transform: rotate(0deg) scale(4) translateY(-100px) translateX(120px);
+    -ms-transform: rotate(0deg) scale(4) translateY(-100px) translateX(120px);
+    -o-transform: rotate(0deg) scale(4) translateY(-100px) translateX(120px);
+    transform: rotate(0deg) scale(4) translateY(-100px) translateX(120px);
     opacity: 0;
   }
 }
 
 @keyframes smoke-two {
   0% {
-    -webkit-transform: rotate(180deg) scale(5) translateY(0px) translateX(0px);
-    -moz-transform: rotate(180deg) scale(5) translateY(0px) translateX(0px);
-    -ms-transform: rotate(180deg) scale(5) translateY(0px) translateX(0px);
-    -o-transform: rotate(180deg) scale(5) translateY(0px) translateX(0px);
-    transform: rotate(180deg) scale(5) translateY(0px) translateX(0px);
-    opacity: 0;
+    -webkit-transform: rotate(180deg) scale(2) translateY(0px) translateX(0px);
+    -moz-transform: rotate(180deg) scale(2) translateY(0px) translateX(0px);
+    -ms-transform: rotate(180deg) scale(2) translateY(0px) translateX(0px);
+    -o-transform: rotate(180deg) scale(2) translateY(0px) translateX(0px);
+    transform: rotate(180deg) scale(2) translateY(0px) translateX(0px);
+    opacity: .5;
   }
   20%, 80% {
     opacity: 1;
   }
   100% {
-    -webkit-transform: rotate(180deg) scale(5) translateY(80px) translateX(50px);
-    -moz-transform: rotate(180deg) scale(5) translateY(80px) translateX(50px);
-    -ms-transform: rotate(180deg) scale(5) translateY(80px) translateX(50px);
-    -o-transform: rotate(180deg) scale(5) translateY(80px) translateX(50px);
-    transform: rotate(180deg) scale(5) translateY(80px) translateX(50px);
+    -webkit-transform: rotate(180deg) scale(4) translateY(80px) translateX(50px);
+    -moz-transform: rotate(180deg) scale(4) translateY(80px) translateX(50px);
+    -ms-transform: rotate(180deg) scale(4) translateY(80px) translateX(50px);
+    -o-transform: rotate(180deg) scale(4) translateY(80px) translateX(50px);
+    transform: rotate(180deg) scale(4) translateY(80px) translateX(50px);
     opacity: 0;
   }
 }
