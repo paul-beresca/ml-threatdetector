@@ -16,6 +16,10 @@
   grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
+.videos-container {
+  background-color: #202a2f;
+}
+
 .video {
   width: 100%;
   height: auto;
@@ -34,7 +38,7 @@
 
 .videos-main-container {
   display: grid;
-  grid-template-columns: 26% 1fr 18%;
+  grid-template-columns: 18% 1fr 18%;
   grid-template-rows: auto;
   grid-template-areas: "sourceList videosContainer videoSettings";
   position: absolute;
@@ -47,7 +51,7 @@
   grid-area: sourceList;
   background-color: #263238;
   height: 100%;
-  min-width: 26%;
+  min-width: 18%;
 }
 
 .videosContainer {
@@ -56,7 +60,7 @@
 
 .no-videos-message {
   font-size: 40px;
-  color: black;
+  color: #ffffff94;
   margin: auto;
   width: 330px;
 }

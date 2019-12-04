@@ -3,7 +3,9 @@
     class="sourceList"
     (videosToWatch)="addVideoToWatchlist($event)"
     (emitChoosenGrid)="choosenGirdSystem($event)"
+    (emitRemovedVideo)="removeVideoFromWatchlist($event)"
     [addedVideos]="videosToWatch"
+    [oneColumnGrid]="fullWidthVideo"
   ></app-source-list>
   <div class="videos-container">
     <div class="no-videos-message" *ngIf="videosToWatch.length == 0">
@@ -24,6 +26,7 @@
         id="videoAdded"
         class="video"
         (click)="showVideoDetails(video)"
+        (dblclick)="showMainVideo(video)"
       >
       </app-tensorflow-example>
       <!-- <video
