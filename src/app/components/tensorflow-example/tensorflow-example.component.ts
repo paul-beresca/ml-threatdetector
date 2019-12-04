@@ -96,7 +96,9 @@ export class TensorflowExampleComponent implements OnInit, AfterViewInit {
 
   renderPredictions = predictions => {
     const canvas = <HTMLCanvasElement>document.getElementById(`canvas${this.videoId}`);
-
+    if (canvas == null) {
+      return;
+    }
     const ctx = canvas.getContext('2d');
 
     canvas.width = this.video.videoWidth;
@@ -210,12 +212,12 @@ class ObjectDetection {
     // where 1917 is the number of box detectors, 90 is the number of classes.
     // and 4 is the four coordinates of the box.
     const result = await this.model.executeAsync(batched) as tf.Tensor[];
-    console.log(result);
+    // console.log(result);
 
     const scores = result[0].dataSync() as Float32Array;
     const boxes = result[1].dataSync() as Float32Array;
-    console.log('scores', result[0]);
-    console.log('scores1', result[1]);
+    // console.log('scores', result[0]);
+    // console.log('scores1', result[1]);
 
     // clean the webgl tensors
     batched.dispose();
@@ -227,7 +229,7 @@ class ObjectDetection {
     const prevBackend = tf.getBackend();
     // run post process in cpu
     tf.setBackend('cpu');
-    console.log('BOXES', result[1]);
+    // console.log('BOXES', result[1]);
     const indexTensor = tf.tidy(() => {
       const boxes2 =
         tf.tensor2d(boxes, [result[1].shape[1], 4]);

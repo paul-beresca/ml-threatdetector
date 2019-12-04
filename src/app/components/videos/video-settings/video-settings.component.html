@@ -13,3 +13,16 @@
 >
   <mgl-marker [lngLat]="[videoSettings.lat, videoSettings.long]"></mgl-marker>
 </mgl-map>
+
+<div class="alarm">
+  <button *ngIf="videoSettings.name" class="btn no-alarm-btn" disabled>
+    Alarm OFF
+  </button>
+  <button
+    *ngIf="videoSettings.name"
+    (click)="sendMessage()"
+    class="btn no-alarm-btn pulsate-bck"
+  >
+    Alarm ON
+  </button>
+</div>

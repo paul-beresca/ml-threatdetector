@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, Output, EventEmitter} from "@angular/core";
+import { Component, OnInit, ViewChild, ElementRef, Output, EventEmitter, Input} from "@angular/core";
 import { VideosService } from "src/app/services/videos.service";
 
 @Component({
@@ -7,19 +7,21 @@ import { VideosService } from "src/app/services/videos.service";
   styleUrls: ["./videos.component.scss"]
 })
 export class VideosComponent implements OnInit {
+  @ViewChild("videoPlayer", { static: true }) videoPlayer: ElementRef;
+  @Output() videosAlreadyAdded = new EventEmitter<[]>();
+  @Output() selectedVideo = new EventEmitter<any>();
+  // @Output() fullWidthVideo = new EventEmitter<string>();
   videos: any = [];
   videosToWatch: any = [];
-  oneColumn: boolean = false;
+  oneColumn: boolean = true;
   twoColumns: boolean = false;
-  threeColumns: boolean = true;
+  threeColumns: boolean = false;
   fourColumns: boolean = false;
   gridSystem: string = "";
   video: HTMLVideoElement;
   addDisabled: boolean;
-  @ViewChild("videoPlayer", { static: true }) videoPlayer: ElementRef;
-  @Output() videosAlreadyAdded = new EventEmitter<[]>();
-  @Output() selectedVideo = new EventEmitter<any>();
-
+  removedVideoId: string;
+  fullWidthVideo: string = " ";
 
   constructor(private videosService: VideosService) {}
 
@@ -48,8 +50,27 @@ export class VideosComponent implements OnInit {
     return this.selectedVideo;
   }
 
+  showMainVideo(mainVideo) {
+    this.fullWidthVideo = "1 X 1";
+    this.videosToWatch = this.videosToWatch.filter(item => item == mainVideo);
+  }
+
+  removeVideoFromWatchlist(videoId) {
+    this.videosToWatch.forEach((video, index) => {
+      if (video.id === videoId) {
+        this.videosToWatch.splice(index, 1);
+      }
+    })
+  }
+
   choosenGirdSystem(dataChild) {
     this.gridSystem = dataChild;
+    if (this.fullWidthVideo == "1 X 1") {
+      this.oneColumn = !this.oneColumn;
+      this.twoColumns = false;
+      this.threeColumns = false;
+      this.fourColumns = false;      
+    }
     if (this.gridSystem == "1 X 1") {
       this.oneColumn = !this.oneColumn;
       this.twoColumns = false;
