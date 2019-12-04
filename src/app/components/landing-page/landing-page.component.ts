@@ -14,14 +14,14 @@ export class LandingPageComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
   }
-
+  // pt meniu folosim swing-in 2 sec
   ngAfterViewInit() {
     setTimeout(() => {
       this.isReady = true;
-    }, 100)
+    }, 100);
     setTimeout(() => {
       this.shouldTitleAndMenuAppear = true;
-    }, 5000);
+    }, 3500);
   }
 
 }
