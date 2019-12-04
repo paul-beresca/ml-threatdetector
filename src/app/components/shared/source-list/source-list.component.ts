@@ -19,6 +19,13 @@ export class SourceListComponent implements OnInit {
 
   constructor(private videosService: VideosService) {}
 
+  ngOnChanges(changes): void {
+    if (changes.oneColumnGrid && this.oneColumnGrid) {
+      this.choosenGrid = this.oneColumnGrid.oneGrid;
+      this.emitChoosenGrid.emit(this.choosenGrid)
+    }
+  }
+
   ngOnInit() {
     this.showVideosFromJson();
   }
