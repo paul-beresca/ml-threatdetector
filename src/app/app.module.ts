@@ -17,6 +17,7 @@ import { FormsModule } from "@angular/forms";
 import { LandingPageComponent } from "./components/landing-page/landing-page.component";
 import { VideoSettingsComponent } from "./components/videos/video-settings/video-settings.component";
 import { NgxMapboxGLModule } from "ngx-mapbox-gl";
+import { CreditsComponent } from './components/credits/credits.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { NgxMapboxGLModule } from "ngx-mapbox-gl";
     SourceListComponent,
     VideosComponent,
     LandingPageComponent,
-    VideoSettingsComponent
+    VideoSettingsComponent,
+    CreditsComponent
   ],
   imports: [
     BrowserModule,
