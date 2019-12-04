@@ -8,8 +8,26 @@
     class="villain-character" 
     [ngClass]="{'villain-move':isReady}"></div>
   <div class="crosshair"></div>
-  <div class="landing-page-title">
-    <div>THREAT DETECTOR</div>
-    <div>Life Matters</div>
+  <div 
+    class="landing-page-title"
+    *ngIf="shouldTitleAndMenuAppear"
+  >
+    <img 
+      src="../../../assets/ui/logo.png"
+      class="puff-in-center"
+    >
+    <div 
+      class="motto_text text-flicker-in-glow"
+    >
+      when success is vital
+    </div>
+  </div>
+  <div 
+    class="landing-page-menu swing-in-top-fwd"
+    *ngIf="shouldTitleAndMenuAppear"
+  >
+    <div class="menu_item" [routerLink]="['/home']">Surveillance Mode</div>
+    <div class="menu_item">Live Mode</div>
+    <div class="menu_item">Credits</div>
   </div>
 </div>

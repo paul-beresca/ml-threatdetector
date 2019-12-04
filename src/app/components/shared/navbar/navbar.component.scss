@@ -8,4 +8,17 @@ a.active-link {
 
 .navbar {
   background-color: #131a1d;
+  z-index: 22;
+  position: absolute;
+  width: 100%;
+}
+
+.top_nav_logo {
+  width: 160px;
+}
+
+.navbar-brand {
+  position: relative;
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
