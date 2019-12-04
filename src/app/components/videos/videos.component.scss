@@ -16,6 +16,10 @@
   grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
+.videos-container {
+  background-color: #202a2f;
+}
+
 .video {
   width: 100%;
   height: auto;
@@ -53,7 +57,7 @@
 
 .no-videos-message {
   font-size: 40px;
-  color: black;
+  color: #ffffff94;
   margin: auto;
   width: 330px;
 }

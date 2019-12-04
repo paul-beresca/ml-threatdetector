@@ -7,13 +7,14 @@ import { VideosService } from "src/app/services/videos.service";
   styleUrls: ["./source-list.component.scss"]
 })
 export class SourceListComponent implements OnInit {
-  choosenGrid: string = "1 X 1";
-  gridSystems = ["1 X 1", "2 X 2", "3 X 3", "4 X 4"];
-  videos: any = [];
-  videoDisabled: boolean = false;
   @Output() videosToWatch = new EventEmitter<[]>();
   @Output() emitChoosenGrid = new EventEmitter<[]>();
+  @Output() emitRemovedVideo = new EventEmitter<string>();
   @Input() addedVideos;
+  choosenGrid: string = "1 X 1";
+  gridSystems = ["1 X 1", "2 X 2", "3 X 3", "4 X 4"];
+  videoDisabled: boolean = false;
+  videos: any = [];
 
   constructor(private videosService: VideosService) {}
 
@@ -33,6 +34,10 @@ export class SourceListComponent implements OnInit {
 
   checkDisabled(videoId) {
     return this.addedVideos.find(video => video.id === videoId);
+  }
+
+  removeVideoFromWatchlist(id) {
+    this.emitRemovedVideo.emit(id);
   }
 
   choosenGirdSystem(choosenGrid) {

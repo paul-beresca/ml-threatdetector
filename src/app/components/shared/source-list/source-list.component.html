@@ -11,9 +11,13 @@
     >
       Add
     </button>
-    <p class="name-video" *ngIf="checkDisabled(video.id)">
-      already added
-    </p>
+    <button
+      class="btn btn-danger"
+      (click)="removeVideoFromWatchlist(video.id)"
+      *ngIf="checkDisabled(video.id)"
+    >
+      Remove
+    </button>
     <video width="100px" height="70px" controls>
       <source
         src="../../../../assets/VideoSources/{{ video.videoUrl }}"

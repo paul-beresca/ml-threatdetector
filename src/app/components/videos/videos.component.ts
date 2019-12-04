@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, Output, EventEmitter} from "@angular/core";
+import { Component, OnInit, ViewChild, ElementRef, Output, EventEmitter, Input} from "@angular/core";
 import { VideosService } from "src/app/services/videos.service";
 
 @Component({
@@ -7,6 +7,9 @@ import { VideosService } from "src/app/services/videos.service";
   styleUrls: ["./videos.component.scss"]
 })
 export class VideosComponent implements OnInit {
+  @ViewChild("videoPlayer", { static: true }) videoPlayer: ElementRef;
+  @Output() videosAlreadyAdded = new EventEmitter<[]>();
+  @Output() selectedVideo = new EventEmitter<any>();
   videos: any = [];
   videosToWatch: any = [];
   oneColumn: boolean = false;
@@ -16,10 +19,8 @@ export class VideosComponent implements OnInit {
   gridSystem: string = "";
   video: HTMLVideoElement;
   addDisabled: boolean;
-  @ViewChild("videoPlayer", { static: true }) videoPlayer: ElementRef;
-  @Output() videosAlreadyAdded = new EventEmitter<[]>();
-  @Output() selectedVideo = new EventEmitter<any>();
-
+  removedVideoId: string;
+  fullWidthVideo: boolean = false;
 
   constructor(private videosService: VideosService) {}
 
@@ -45,7 +46,16 @@ export class VideosComponent implements OnInit {
   showVideoDetails(video) {
     this.selectedVideo = video;
     console.log(this.selectedVideo)
+    this.fullWidthVideo != this.fullWidthVideo;
     return this.selectedVideo;
+  }
+
+  removeVideoFromWatchlist(videoId) {
+    this.videosToWatch.forEach((video, index) => {
+      if (video.id === videoId) {
+        this.videosToWatch.splice(index, 1);
+      }
+    })
   }
 
   choosenGirdSystem(dataChild) {
