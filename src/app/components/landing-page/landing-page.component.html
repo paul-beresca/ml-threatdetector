@@ -13,7 +13,7 @@
     *ngIf="shouldTitleAndMenuAppear"
   >
     <img 
-      src="../../../assets/ui/logo.png"
+      src="../../../assets/ui/logo_white.png"
       class="puff-in-center"
     >
     <div 
@@ -27,7 +27,7 @@
     *ngIf="shouldTitleAndMenuAppear"
   >
     <div class="menu_item" [routerLink]="['/home']">Surveillance Mode</div>
-    <div class="menu_item">Live Mode</div>
-    <div class="menu_item">Credits</div>
+    <div class="menu_item" [routerLink]="['/live-mode']">Live Mode</div>
+    <div class="menu_item" [routerLink]="['/credits']">Credits</div>
   </div>
 </div>

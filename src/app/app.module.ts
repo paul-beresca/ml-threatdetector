@@ -18,6 +18,7 @@ import { LandingPageComponent } from "./components/landing-page/landing-page.com
 import { VideoSettingsComponent } from "./components/videos/video-settings/video-settings.component";
 import { NgxMapboxGLModule } from "ngx-mapbox-gl";
 import { CreditsComponent } from './components/credits/credits.component';
+import { LiveModeComponent } from './components/live-mode/live-mode.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { CreditsComponent } from './components/credits/credits.component';
     VideosComponent,
     LandingPageComponent,
     VideoSettingsComponent,
-    CreditsComponent
+    CreditsComponent,
+    LiveModeComponent
   ],
   imports: [
     BrowserModule,

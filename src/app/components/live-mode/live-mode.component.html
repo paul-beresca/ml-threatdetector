@@ -1,0 +1,12 @@
+<div class="live_mode_container">
+  <div class="villain-character"></div>
+  <div class="villain-character villain-reversed"></div>
+  <!-- tensorflow -->
+  <app-tensorflow-example
+      *ngIf="videoSrc"
+      [videoSrc]="videoSrc"
+      [videoId]="'1011'"
+      [isLive]="true"
+  >
+  </app-tensorflow-example>
+</div>
