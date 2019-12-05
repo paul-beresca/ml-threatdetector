@@ -25,28 +25,19 @@
         [videoId]="video.id"
         id="videoAdded"
         class="video"
+        (threatDetected)=isThreatActive($event)
         (click)="showVideoDetails(video)"
         (dblclick)="showMainVideo(video)"
+        [rearm]='rearm'
       >
       </app-tensorflow-example>
-      <!-- <video
-        autoplay
-        class="video"
-        id="videoAdded"
-        controls
-        #videoPlayer
-        *ngFor="let video of videosToWatch"
-        (click)="showVideoDetails(video)"
-      >
-        <source
-          src="../../../../assets/VideoSources/{{ video.videoUrl }}"
-          type="video/mp4"
-        />
-      </video> -->
     </div>
   </div>
   <app-video-settings
     class="videoSettings"
     [videoSettings]="selectedVideo"
-  ></app-video-settings>
+    [threatDetected]="isAThreatActive"
+    (rearm)="rearmSystem($event)"
+  >
+  </app-video-settings>
 </div>

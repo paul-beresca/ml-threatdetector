@@ -1,6 +1,6 @@
 <div class="header-video-details">
   <h3>Video Settings</h3>
-  <h5 *ngIf="!videoSettings.name">No selected video</h5>
+  <h5 *ngIf="!videoSettings.name">No video selected</h5>
 </div>
 <div class="video-settings" *ngIf="videoSettings.name">
   <div class="video-address">Address : {{ videoSettings.address }}</div>
@@ -15,14 +15,25 @@
 </mgl-map>
 
 <div class="alarm">
-  <button *ngIf="videoSettings.name" class="btn no-alarm-btn" disabled>
-    Alarm OFF
+  <button *ngIf="threatDetected === 'active' && videoSettings.name" class="btn no-alarm-btn ping" disabled>
   </button>
   <button
     *ngIf="videoSettings.name"
     (click)="sendMessage()"
-    class="btn no-alarm-btn pulsate-bck"
+    class="btn no-alarm-btn"
+    [ngClass]="{'pulsate-bck': threatDetected === 'active'}"
   >
-    Alarm ON
+  {{ threatDetected === 'active' ? 'ALARM' : 'SAFE' }}
+  </button>
+</div>
+<div
+ class='rearm-container'
+ *ngIf="threatDetected === 'active' && videoSettings.name"
+>
+  <button 
+    class='rearm-button'
+    (click)="rearmSystem()"
+  >
+    Rearm
   </button>
 </div>

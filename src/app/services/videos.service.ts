@@ -1,12 +1,13 @@
-import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root'
 })
 export class VideosService {
-  videosUrl: string = "https://jsonplaceholder.typicode.com/users";
-  videosJson = "../../assets/VideoSources/data-videos.json";
+  videosUrl = 'https://jsonplaceholder.typicode.com/users';
+  videosJson = '../../assets/VideoSources/data-videos.json';
+  
 
   constructor(private http: HttpClient) {}
 
@@ -25,7 +26,7 @@ export class VideosService {
         `https://www.whosms.ro/send.php?user=${objToSend.user}&pass=${objToSend.pass}&catre=${number}&dela=${objToSend.dela}&mesaj=${mesaj}`
       )
       .subscribe(data => {
-        console.log("data", data);
+        console.log('data', data);
       });
   }
 }

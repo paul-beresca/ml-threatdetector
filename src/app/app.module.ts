@@ -19,6 +19,7 @@ import { VideoSettingsComponent } from "./components/videos/video-settings/video
 import { NgxMapboxGLModule } from "ngx-mapbox-gl";
 import { CreditsComponent } from './components/credits/credits.component';
 import { LiveModeComponent } from './components/live-mode/live-mode.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { LiveModeComponent } from './components/live-mode/live-mode.component';
     HttpClientModule,
     BrowserAnimationsModule,
     MatRadioModule,
+    MatProgressSpinnerModule,
     FormsModule,
     NgxMapboxGLModule.withConfig({
       accessToken:

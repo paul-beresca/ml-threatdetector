@@ -17,3 +17,6 @@
   left: 163px;
   background-color: #FFF;
 }
+::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
+  stroke: #69f0ae !important;
+}

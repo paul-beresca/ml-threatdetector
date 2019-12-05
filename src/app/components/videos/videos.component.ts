@@ -6,16 +6,16 @@ import {
   Output,
   EventEmitter,
   Input
-} from "@angular/core";
-import { VideosService } from "src/app/services/videos.service";
+} from '@angular/core';
+import { VideosService } from 'src/app/services/videos.service';
 
 @Component({
-  selector: "app-videos",
-  templateUrl: "./videos.component.html",
-  styleUrls: ["./videos.component.scss"]
+  selector: 'app-videos',
+  templateUrl: './videos.component.html',
+  styleUrls: ['./videos.component.scss']
 })
 export class VideosComponent implements OnInit {
-  @ViewChild("videoPlayer", { static: true }) videoPlayer: ElementRef;
+  @ViewChild('videoPlayer', { static: true }) videoPlayer: ElementRef;
   @Output() videosAlreadyAdded = new EventEmitter<[]>();
   @Output() selectedVideo = new EventEmitter<any>();
   // @Output() fullWidthVideo : EventEmitter<string> = new EventEmitter<string>();
@@ -25,7 +25,9 @@ export class VideosComponent implements OnInit {
   twoColumns: boolean = false;
   threeColumns: boolean = false;
   fourColumns: boolean = false;
-  gridSystem: string = "";
+  gridSystem: string = '';
+  rearm = '';
+  isAThreatActive = 'inactive';
   video: HTMLVideoElement;
   addDisabled: boolean;
   removedVideoId: string;
@@ -58,7 +60,7 @@ export class VideosComponent implements OnInit {
   }
 
   showMainVideo(mainVideo) {
-    this.fullWidthVideo = { oneGrid: "1 X 1" };
+    this.fullWidthVideo = { oneGrid: '1 X 1' };
     this.videosToWatch = this.videosToWatch.filter(item => item == mainVideo);
   }
 
@@ -70,27 +72,35 @@ export class VideosComponent implements OnInit {
     });
   }
 
+  isThreatActive(event) {
+    this.isAThreatActive = event;
+  }
+
+  rearmSystem(event) {
+    this.rearm = event;
+  }
+
   choosenGirdSystem(dataChild) {
     this.gridSystem = dataChild;
-    if (this.gridSystem == "1 X 1") {
+    if (this.gridSystem == '1 X 1') {
       this.oneColumn = !this.oneColumn;
       this.twoColumns = false;
       this.threeColumns = false;
       this.fourColumns = false;
     }
-    if (this.gridSystem == "2 X 2") {
+    if (this.gridSystem == '2 X 2') {
       this.twoColumns = !this.twoColumns;
       this.threeColumns = false;
       this.oneColumn = false;
       this.fourColumns = false;
     }
-    if (this.gridSystem == "3 X 3") {
+    if (this.gridSystem == '3 X 3') {
       this.threeColumns = !this.threeColumns;
       this.oneColumn = false;
       this.twoColumns = false;
       this.fourColumns = false;
     }
-    if (this.gridSystem == "4 X 4") {
+    if (this.gridSystem == '4 X 4') {
       this.fourColumns = !this.fourColumns;
       this.oneColumn = false;
       this.twoColumns = false;

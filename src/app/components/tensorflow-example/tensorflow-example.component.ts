@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, Input } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Input, Output, EventEmitter } from '@angular/core';
 
 // import COCO-SSD model as cocoSSD
 import * as tfconv from '@tensorflow/tfjs-converter';
@@ -37,10 +37,14 @@ export interface ModelConfig {
 })
 export class TensorflowExampleComponent implements OnInit, AfterViewInit {
   title = 'TF-ObjectDetection';
+  isThreatActive = false;
+  isSpinnerVisible = true;
   private video: HTMLVideoElement;
   @Input() videoSrc: any;
   @Input() videoId: string;
   @Input() isLive: string;
+  @Input() rearm: string;
+  @Output() threatDetected = new EventEmitter();
 
   ngOnInit() {
   }
@@ -50,7 +54,7 @@ export class TensorflowExampleComponent implements OnInit, AfterViewInit {
   }
 
   public async predictWithCocoModel() {
-    const x = new ObjectDetection('mobilenet_v1');
+    const x = new ObjectDetection('lite_mobilenet_v2');
     const modelPromise = load();
     const model = await modelPromise;
     // model.dispose();
@@ -86,12 +90,30 @@ export class TensorflowExampleComponent implements OnInit, AfterViewInit {
   }
 
   detectFrame = (video, model) => {
+    this.isSpinnerVisible = false;
+    if (this.isThreatActive) {
+      this.drawBorder();
+    }
     model.detect(video).then(predictions => {
       this.renderPredictions(predictions);
       requestAnimationFrame(() => {
         this.detectFrame(video, model);
       });
     });
+  }
+
+  drawBorder() {
+    if (this.rearm !== '') {
+      this.isThreatActive = false;
+      this.rearm = '';
+      return;
+    }
+    const canvas1 = <HTMLCanvasElement>document.getElementById(`canvas${this.videoId}`);
+    const ctx1 = canvas1.getContext('2d');
+    ctx1.lineWidth = 15;
+    ctx1.strokeStyle = '#dc3545';
+    ctx1.strokeRect(0, 0, canvas1.width, canvas1.height);
+    this.threatDetected.emit('active');
   }
 
   renderPredictions = predictions => {
@@ -133,9 +155,7 @@ export class TensorflowExampleComponent implements OnInit, AfterViewInit {
       ctx.fillText(prediction.class, x, y - labelHeight);
       
       // Draw border around canvas to signal that something was found
-      ctx.lineWidth = 15;
-      ctx.strokeStyle = "#FF0000";
-      ctx.strokeRect(0, 0, canvas.width, canvas.height);
+      this.isThreatActive = true;
     });
   }
 

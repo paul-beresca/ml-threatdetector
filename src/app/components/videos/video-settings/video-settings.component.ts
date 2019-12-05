@@ -1,20 +1,26 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { VideosService } from 'src/app/services/videos.service';
 
 @Component({
-  selector: "app-video-settings",
-  templateUrl: "./video-settings.component.html",
-  styleUrls: ["./video-settings.component.scss"]
+  selector: 'app-video-settings',
+  templateUrl: './video-settings.component.html',
+  styleUrls: ['./video-settings.component.scss']
 })
 export class VideoSettingsComponent implements OnInit {
   @Input() videoSettings;
+  @Input() threatDetected;
+  @Output() rearm = new EventEmitter();
 
   constructor(private videoService: VideosService) {}
 
   ngOnInit() {}
 
+  rearmSystem() {
+    this.threatDetected = 'inactive';
+    this.rearm.emit('rearm');
+  }
+
   sendMessage() {
-    console.log('Entered message function');
     const numbers = ['40742188066', '40751778431', '40740421159'];
     const objToSend = {
       user: 'paul.beresca',
@@ -26,8 +32,5 @@ export class VideoSettingsComponent implements OnInit {
     numbers.map(number => {
       this.videoService.messageCall(objToSend, mesaj, number);
     });
-        // tslint:disable-next-line:max-line-length
-    // console.log(`https://www.whosms.ro/send.php?user=${objToSend.user}&pass=${objToSend.pass}&catre=${objToSend.catre}&dela=${objToSend.dela}&mesaj=${mesaj}`);
-    console.log('Message Sent!');
   }
 }
