@@ -21,12 +21,15 @@ export class VideoSettingsComponent implements OnInit {
   }
 
   sendMessage() {
+    if (this.threatDetected == 'inactive') {
+      return;
+    }
     const numbers = ['40742188066', '40751778431', '40740421159'];
     const objToSend = {
       user: 'paul.beresca',
       pass: 'pk5C39bGS6Z6dC4',
       dela: 'Engage',
-      mesaj: 'Acesta este un mesaj de test api de la Sebastian!'
+      mesaj: 'This is a message from ENGAGE! A possible threat has been detected in your area! Please seek cover!'
     };
     const mesaj = objToSend.mesaj.replace(/\s+/g, '+');
     numbers.map(number => {

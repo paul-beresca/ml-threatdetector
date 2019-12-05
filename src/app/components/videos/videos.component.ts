@@ -18,7 +18,6 @@ export class VideosComponent implements OnInit {
   @ViewChild('videoPlayer', { static: true }) videoPlayer: ElementRef;
   @Output() videosAlreadyAdded = new EventEmitter<[]>();
   @Output() selectedVideo = new EventEmitter<any>();
-  // @Output() fullWidthVideo : EventEmitter<string> = new EventEmitter<string>();
   videos: any = [];
   videosToWatch: any = [];
   oneColumn: boolean = true;
