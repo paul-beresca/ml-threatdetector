@@ -8,7 +8,7 @@ import { VideosService } from "src/app/services/videos.service";
 })
 export class SourceListComponent implements OnInit {
   @Output() videosToWatch = new EventEmitter<[]>();
-  @Output() emitChoosenGrid = new EventEmitter<[]>();
+  @Output() emitChoosenGrid = new EventEmitter<any>();
   @Output() emitRemovedVideo = new EventEmitter<string>();
   @Input() addedVideos;
   @Input() oneColumnGrid;
