@@ -23,16 +23,26 @@
         *ngFor="let video of videosToWatch"
         [videoSrc]="'../../../../assets/VideoSources/' + video.videoUrl"
         [videoId]="video.id"
+        [videoTime]="video.videoTime"
+        (timelineDataChange)="dataChanged($event, video.id)"
+        (timelineDurationChange)="durationChanged($event, video.id)"
         id="videoAdded"
         class="video"
-        (threatDetected)="isThreatActive($event)"
-        (click)="showVideoDetails(video)"
+        (threatDetected)=isThreatActive($event)
+        (click)="selectVideo(video)"
         (dblclick)="showMainVideo(video)"
         [rearm]="rearm"
       >
       </app-tensorflow-example>
     </div>
-  </div>
+    <app-video-timeline
+     *ngIf="selectedVideo"
+     [timelineData]="selectedVideo?.timelineData"
+     [timelineDuration]="selectedVideo?.timelineDuration"
+     (videoTime)="onVideoTime($event)"
+     class="video-timeline">
+    </app-video-timeline>
+</div>
   <app-video-settings
     class="videoSettings"
     [videoSettings]="selectedVideo"

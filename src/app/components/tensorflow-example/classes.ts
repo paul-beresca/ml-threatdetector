@@ -25,16 +25,16 @@ export const CLASSES: { [key: string]: ObjectDetectionClass } = {
   1: {
     name: 'Pistol',
     id: 1,
-    displayName: 'pistol',
+    displayName: 'Pistol',
   },
   2: {
     name: 'Rifle',
     id: 2,
-    displayName: 'rifle',
+    displayName: 'Rifle',
   },
   3: {
     name: 'Bear',
     id: 3,
-    displayName: 'bear',
+    displayName: 'Bear',
   }
 };

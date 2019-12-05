@@ -2,7 +2,7 @@
   {
     "id": 1,
     "name": "Video001",
-    "videoUrl": "./Video001.mp4",
+    "videoUrl": "./guns.mp4",
     "address": "St. Tipografiei nr. 1",
     "long": 47.639942,
     "lat": 26.259347
@@ -10,10 +10,10 @@
   {
     "id": 2,
     "name": "Video002",
-    "videoUrl": "./Video002.mp4",
-    "address": "1-15, Calea Unirii 22",
-    "long": 47.659061,
-    "lat": 26.270565
+    "videoUrl": "./shotgun.mp4",
+    "address": "St. Tipografiei nr. 2",
+    "long": 37.639942,
+    "lat": 26.259347
   },
   {
     "id": 3,

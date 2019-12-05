@@ -45,9 +45,9 @@ mgl-map {
 }
 
 .no-alarm-btn {
-  width: 200px;
-  height: 200px;
-  font-size: 30px;
+  width: 160px;
+  height: 160px;
+  font-size: 26px;
   color: black;
   border-radius: 50%;
   background-color: #69f0ae;
@@ -64,8 +64,8 @@ mgl-map {
 	-webkit-animation: ping 0.8s ease-in-out infinite both;
           animation: ping 0.8s ease-in-out infinite both;
           background-color: #dc3545;
-          width: 220px;
-          height: 220px;
+          width: 150px;
+          height: 150px;
           position: absolute;
 }
 

@@ -5,9 +5,20 @@ import {
   ElementRef,
   Output,
   EventEmitter,
-  Input
 } from '@angular/core';
 import { VideosService } from 'src/app/services/videos.service';
+
+export class VideoData {
+  id: number;
+  name: string;
+  videoUrl: string;
+  address: string;
+  long: number;
+  lat: number;
+  videoTime: number;
+  timelineData: any[];
+  timelineDuration: number;
+}
 
 @Component({
   selector: 'app-videos',
@@ -17,10 +28,11 @@ import { VideosService } from 'src/app/services/videos.service';
 export class VideosComponent implements OnInit {
   @ViewChild('videoPlayer', { static: true }) videoPlayer: ElementRef;
   @Output() videosAlreadyAdded = new EventEmitter<[]>();
-  @Output() selectedVideo = new EventEmitter<any>();
-  videos: any = [];
-  videosToWatch: any = [];
-  oneColumn: boolean = true;
+  // @Output() fullWidthVideo : EventEmitter<string> = new EventEmitter<string>();
+  videos: VideoData[] = [];
+  videosToWatch: VideoData[] = [];
+  selectedVideo: VideoData;
+  oneColumn: boolean = false;
   twoColumns: boolean = false;
   threeColumns: boolean = false;
   fourColumns: boolean = false;
@@ -32,38 +44,48 @@ export class VideosComponent implements OnInit {
   removedVideoId: string;
   fullWidthVideo: any;
 
-  constructor(private videosService: VideosService) {}
+  constructor(private videosService: VideosService) { }
 
   ngOnInit() {
     this.showVideos();
   }
 
+  dataChanged(event, videoId) {
+    if (this.selectedVideo && this.selectedVideo.id === videoId) {
+      this.selectedVideo.timelineData = [...event];
+    }
+  }
+
+  durationChanged(event, videoId) {
+    if (this.selectedVideo && this.selectedVideo.id === videoId) {
+      this.selectedVideo.timelineDuration = event;
+    }
+  }
+
   showVideos() {
-    this.videosService.getVideos().subscribe(data => {
+    this.videosService.getVideos().subscribe((data: VideoData[]) => {
       this.videos = data;
     });
   }
 
   addVideoToWatchlist(dataChild) {
-    this.videosToWatch.push(dataChild);
+    this.videosToWatch.push({ ...dataChild, timelineData: this.getDefaultTimeline(), timelineDuration: 0 });
   }
 
-  checkVideosAdded(videosAlreadyAdded) {
-    this.videosAlreadyAdded = this.videosToWatch;
-    this.videosToWatch.emit(videosAlreadyAdded);
-  }
-
-  showVideoDetails(video) {
-    this.selectedVideo = video;
-    return this.selectedVideo;
+  selectVideo(video) {
+    this.selectedVideo = this.videosToWatch.find(v => v.id === video.id);
   }
 
   showMainVideo(mainVideo) {
     this.fullWidthVideo = { oneGrid: '1 X 1' };
-    this.videosToWatch = this.videosToWatch.filter(item => item == mainVideo);
+    this.videosToWatch = this.videosToWatch.filter(item => item === mainVideo);
   }
 
   removeVideoFromWatchlist(videoId) {
+    if (videoId === this.selectedVideo.id) {
+      this.selectedVideo = null;
+    }
+
     this.videosToWatch.forEach((video, index) => {
       if (video.id === videoId) {
         this.videosToWatch.splice(index, 1);
@@ -105,5 +127,17 @@ export class VideosComponent implements OnInit {
       this.twoColumns = false;
       this.threeColumns = false;
     }
+  }
+
+  onVideoTime(time) {
+    this.selectedVideo.videoTime = time;
+  }
+
+  getDefaultTimeline() {
+    return [
+      ['rifle', 0, 0],
+      ['pistol', 0, 0],
+      ['bear', 0, 0],
+    ];
   }
 }

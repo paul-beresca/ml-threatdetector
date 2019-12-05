@@ -22,7 +22,7 @@ export class SourceListComponent implements OnInit {
   ngOnChanges(changes): void {
     if (changes.oneColumnGrid && this.oneColumnGrid) {
       this.choosenGrid = this.oneColumnGrid.oneGrid;
-      this.emitChoosenGrid.emit(this.choosenGrid)
+      this.emitChoosenGrid.emit(this.choosenGrid);
     }
   }
 

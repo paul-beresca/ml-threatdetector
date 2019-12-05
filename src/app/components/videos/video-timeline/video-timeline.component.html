@@ -1,0 +1,11 @@
+<div #timelineContainer class="timeline-container">
+<google-chart
+  [title]="title"
+  [type]="'Timeline'"
+  [data]="data"
+  [options]="myOptions"
+  (select)="onSelect($event)"
+  #timeline
+  class="timeline"
+></google-chart>
+</div>

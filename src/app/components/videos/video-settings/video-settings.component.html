@@ -1,12 +1,12 @@
 <div class="header-video-details">
   <h3>Video Settings</h3>
-  <h5 *ngIf="!videoSettings.name">No video selected</h5>
+  <h5 *ngIf="!videoSettings?.name">No video selected</h5>
 </div>
-<div class="video-settings" *ngIf="videoSettings.name">
+<div class="video-settings" *ngIf="videoSettings?.name">
   <div class="video-address">Address : {{ videoSettings.address }}</div>
 </div>
 <mgl-map
-  *ngIf="videoSettings.long"
+  *ngIf="videoSettings?.long"
   [style]="'mapbox://styles/mapbox/streets-v9'"
   [zoom]="[17]"
   [center]="[videoSettings.lat, videoSettings.long]"
@@ -15,10 +15,10 @@
 </mgl-map>
 
 <div class="alarm">
-  <button *ngIf="threatDetected === 'active' && videoSettings.name" class="btn no-alarm-btn ping" disabled>
+  <button *ngIf="threatDetected === 'active' && videoSettings?.name" class="btn no-alarm-btn ping" disabled>
   </button>
   <button
-    *ngIf="videoSettings.name"
+    *ngIf="videoSettings?.name"
     (click)="sendMessage()"
     class="btn no-alarm-btn"
     [ngClass]="{'pulsate-bck': threatDetected === 'active'}"
@@ -28,7 +28,7 @@
 </div>
 <div
  class='rearm-container'
- *ngIf="threatDetected === 'active' && videoSettings.name"
+ *ngIf="threatDetected === 'active' && videoSettings?.name"
 >
   <button 
     class='rearm-button'
