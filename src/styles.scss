@@ -3,6 +3,8 @@
   padding: 0;
   -webkit-font-smoothing: antialased;
   -moz-osx-font-smoothing: antialased;
+  font-family: "Orbitron", sans-serif;
+  letter-spacing: 1px;
   /* width */
   ::-webkit-scrollbar {
     width: 6px;
@@ -34,10 +36,11 @@ body {
 
 body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  // font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: "Orbitron", sans-serif;
 }
 
 .mat-radio-label {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
 }
