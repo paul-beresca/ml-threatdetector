@@ -7,7 +7,7 @@ li {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 10px;
+  margin: 10px 5px;
   color: white;
   background-color: #202a2f;
   position: relative;
@@ -62,7 +62,7 @@ mat-radio-group {
   color: white;
   font-size: 21px;
   margin: auto;
-  width: 200px;
+  width: 120px;
 
   label {
     display: flex;
@@ -73,4 +73,9 @@ mat-radio-group {
 .mat-radio-label {
   display: flex;
   justify-content: space-evenly;
+}
+
+.btn-primary {
+  background-color: #62bd909e;
+  border: 1px solid #00ff82;
 }
