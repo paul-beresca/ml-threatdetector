@@ -25,10 +25,10 @@
         [videoId]="video.id"
         id="videoAdded"
         class="video"
-        (threatDetected)=isThreatActive($event)
+        (threatDetected)="isThreatActive($event)"
         (click)="showVideoDetails(video)"
         (dblclick)="showMainVideo(video)"
-        [rearm]='rearm'
+        [rearm]="rearm"
       >
       </app-tensorflow-example>
     </div>
