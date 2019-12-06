@@ -51,14 +51,16 @@ export class VideosComponent implements OnInit {
   }
 
   dataChanged(event, videoId) {
-    if (this.selectedVideo && this.selectedVideo.id === videoId) {
-      this.selectedVideo.timelineData = [...event];
+    const video = this.videosToWatch.find(v => v.id === videoId);
+    if (video) {
+      video.timelineData = [...event];
     }
   }
 
   durationChanged(event, videoId) {
-    if (this.selectedVideo && this.selectedVideo.id === videoId) {
-      this.selectedVideo.timelineDuration = event;
+    const video = this.videosToWatch.find(v => v.id === videoId);
+    if (video) {
+      video.timelineDuration = event;
     }
   }
 

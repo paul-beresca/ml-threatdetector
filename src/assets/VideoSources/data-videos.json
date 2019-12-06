@@ -1,106 +1,50 @@
 [
   {
     "id": 1,
-    "name": "Video001",
-    "videoUrl": "./guns.mp4",
+    "name": "Millitary base",
+    "videoUrl": "./Attack_1.mp4",
     "address": "St. Tipografiei nr. 1",
     "long": 47.639942,
     "lat": 26.259347
   },
   {
     "id": 2,
-    "name": "Video002",
-    "videoUrl": "./shotgun.mp4",
-    "address": "St. Tipografiei nr. 2",
-    "long": 37.639942,
-    "lat": 26.259347
-  },
-  {
-    "id": 3,
-    "name": "Video003",
-    "videoUrl": "./Video003.mp4",
+    "name": "Store",
+    "videoUrl": "./NoAttack_1.mp4",
     "address": "Shopping City Suceava",
     "long": 47.664927,
     "lat": 26.267256
   },
   {
+    "id": 3,
+    "name": "Meeting room",
+    "videoUrl": "./Attack_2.mp4",
+    "address": "St. Tipografiei nr. 2",
+    "long": 37.639942,
+    "lat": 26.259347
+  },
+  {
     "id": 4,
-    "name": "Video004",
-    "videoUrl": "./Video004.mp4",
+    "name": "Parking lot",
+    "videoUrl": "./NoAttack_2.mp4",
     "address": "Bloc Hotel, Strada Nicolae Bălcescu 4",
     "long": 47.644876, 
     "lat": 26.259138
   },
   {
     "id": 5,
-    "name": "Video005",
-    "videoUrl": "./Video005.mp4",
+    "name": "Front store",
+    "videoUrl": "./NoAttack_3.mp4",
     "address": "Strada Universității 13",
     "long": 47.641910,
     "lat": 26.245476
   },
   {
     "id": 6,
-    "name": "Video006",
-    "videoUrl": "./Video006.mp4",
-    "address": "Strada Universității 19",
-    "long": 47.643220,
-    "lat": 26.244542
-  },
-  {
-    "id": 7,
-    "name": "Video007",
-    "videoUrl": "./Video007.mp4",
-    "address": "Strada Universității 15-19",
-    "long": 47.642997,
-    "lat": 26.242784
-  },
-  {
-    "id": 8,
-    "name": "Video008",
-    "videoUrl": "./Video008.mp4",
-    "address": "Bulevardul 1 Mai 21",
-    "long": 47.638823,
-    "lat": 26.240299
-  },
-  {
-    "id": 9,
-    "name": "Video009",
-    "videoUrl": "./Video009.mp4",
-    "address": "Calea Unirii 86A",
-    "long": 47.673216,
-    "lat": 26.282769
-  },
-  {
-    "id": 10,
-    "name": "Video010",
-    "videoUrl": "./Video010.mp4",
-    "address": "Strada Mitropoliei 30",
-    "long": 47.639285,
-    "lat": 26.264199
-  },
-  {
-    "id": 11,
-    "name": "Checknya-attack",
-    "videoUrl": "./Checknya-attack.mp4",
-    "address": "Strada Mitropoliei 30",
-    "long": 47.639285,
-    "lat": 26.264199
-  },
-  {
-    "id": 12,
-    "name": "Mexican Robbery",
-    "videoUrl": "./Mexican Robbery.mp4",
-    "address": "Strada Mitropoliei 11111",
-    "long": 47.639285,
-    "lat": 26.264199
-  },
-  {
-    "id": 13,
-    "name": "Bank Robbery",
-    "videoUrl": "./Bank Robbery.mp4",
-    "address": "Strada Mitropoliei 50",
-    "long": 47.639285,
-    "lat": 26.264199
+    "name": "Funny",
+    "videoUrl": "./Funny.mp4",
+    "address": "Strada Universității 13",
+    "long": 47.641910,
+    "lat": 26.245476
   }
 ]

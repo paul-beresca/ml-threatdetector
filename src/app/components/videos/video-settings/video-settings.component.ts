@@ -25,6 +25,7 @@ export class VideoSettingsComponent implements OnInit {
       return;
     }
     const numbers = ['40742188066', '40751778431', '40740421159'];
+
     const objToSend = {
       user: 'paul.beresca',
       pass: 'pk5C39bGS6Z6dC4',
